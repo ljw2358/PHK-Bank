@@ -30,9 +30,9 @@
         radial-gradient(800px 520px at 50% 110%, rgba(255,200,80,.10), transparent 55%),
         var(--bg);
     }
-    a{color:inherit}
     .wrap{max-width: 420px; margin: 0 auto; padding: 18px 14px 26px}
-    /* top bar */
+
+    /* Top bar */
     .topbar{
       display:flex; align-items:center; justify-content:space-between;
       gap:10px; padding: 10px 10px 16px;
@@ -45,6 +45,7 @@
       border:1px solid rgba(255,255,255,.14);
     }
     .brandName{font-weight:800; letter-spacing:.2px}
+
     .langSelect{
       display:flex; align-items:center; gap:8px;
       border:1px solid var(--line);
@@ -54,19 +55,22 @@
       backdrop-filter: blur(10px);
       cursor:pointer;
       user-select:none;
+      min-width: 120px;
+      justify-content: space-between;
     }
-    .langSelect span{font-weight:700}
+    .langSelect span{font-weight:800}
     .caret{
-      width:0; height:0; border-left:6px solid transparent; border-right:6px solid transparent;
+      width:0; height:0;
+      border-left:6px solid transparent; border-right:6px solid transparent;
       border-top:7px solid rgba(234,240,255,.70);
       transform: translateY(1px);
     }
 
-    /* hero */
+    /* Hero */
     .hero{
       margin-top: 6px;
       text-align:center;
-      padding: 18px 10px 6px;
+      padding: 18px 10px 10px;
     }
     .appIcon{
       width:86px; height:86px; border-radius:26px;
@@ -103,6 +107,7 @@
       letter-spacing: .35em;
       color: rgba(234,240,255,.58);
     }
+    /* 요청: 이유 => 이윤 */
     .slogan{
       margin-top: 22px;
       font-size: 28px;
@@ -111,16 +116,16 @@
       letter-spacing:-.3px;
     }
 
-    /* section label */
+    /* Section label */
     .sectionLabel{
-      margin: 22px 8px 12px;
+      margin: 18px 8px 12px;
       color: rgba(234,240,255,.70);
       font-weight: 800;
       letter-spacing:.2px;
       text-align:left;
     }
 
-    /* card */
+    /* Cards */
     .card{
       border-radius: var(--radius);
       border: 1px solid rgba(255,255,255,.10);
@@ -129,12 +134,14 @@
       padding: 18px 18px 16px;
       position: relative;
       overflow:hidden;
+      margin-bottom: 16px;
     }
     .card::before{
       content:"";
       position:absolute; inset:-40px;
-      background: radial-gradient(520px 240px at 20% 0%, rgba(120,140,255,.20), transparent 60%),
-                  radial-gradient(520px 240px at 100% 30%, rgba(255,200,80,.10), transparent 60%);
+      background:
+        radial-gradient(520px 240px at 20% 0%, rgba(120,140,255,.20), transparent 60%),
+        radial-gradient(520px 240px at 100% 30%, rgba(255,200,80,.10), transparent 60%);
       pointer-events:none;
     }
     .cardTitle{
@@ -158,7 +165,26 @@
       line-height: 1.55;
     }
 
-    /* floating button */
+    /* External Channels */
+    .dividerText{
+      text-align:center;
+      margin: 8px 0 14px;
+      color: rgba(234,240,255,.34);
+      letter-spacing:.06em;
+      font-size: 13px;
+    }
+
+    /* Footer (스크샷 느낌) */
+    .footer{
+      text-align:center;
+      margin-top: 18px;
+      color: rgba(234,240,255,.34);
+      font-size: 12px;
+      line-height: 1.6;
+      padding-bottom: 6px;
+    }
+
+    /* Floating button (우측 하단 원형) */
     .fab{
       position: fixed;
       right: 18px;
@@ -174,6 +200,7 @@
       box-shadow: 0 18px 55px rgba(0,0,0,.55);
       cursor:pointer;
       user-select:none;
+      z-index: 60;
     }
     .fab span{
       font-weight: 1000;
@@ -182,37 +209,19 @@
       letter-spacing:-.5px;
     }
 
-    /* bottom email */
-    .contact{
-      margin-top: 18px;
-      padding: 12px 14px;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(10,16,32,.45);
-      color: rgba(234,240,255,.66);
-      font-size: 12px;
-      line-height: 1.6;
-    }
-    .email{
-      color: rgba(234,240,255,.92);
-      font-weight: 900;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      letter-spacing:.2px;
-    }
-
-    /* simple language menu */
+    /* Language menu */
     .menu{
       position: fixed;
       top: 64px;
       right: 14px;
-      width: 165px;
+      width: 175px;
       border-radius: 16px;
       border: 1px solid rgba(255,255,255,.12);
       background: rgba(15,23,42,.90);
       box-shadow: var(--shadow);
       padding: 8px;
       display:none;
-      z-index: 50;
+      z-index: 80;
       backdrop-filter: blur(10px);
     }
     .menu button{
@@ -228,26 +237,30 @@
     }
     .menu button:hover{background: rgba(255,255,255,.06)}
     .menu small{display:block;color:rgba(234,240,255,.55);font-weight:600;margin-top:2px}
-    .toast{
-      position: fixed;
-      left: 50%;
-      bottom: 90px;
-      transform: translateX(-50%);
-      background: rgba(0,0,0,.55);
+
+    /* Contact badge */
+    .contact{
+      margin-top: 10px;
+      padding: 12px 14px;
+      border-radius: 16px;
       border: 1px solid rgba(255,255,255,.10);
-      color: rgba(234,240,255,.92);
-      padding: 10px 12px;
-      border-radius: 999px;
+      background: rgba(10,16,32,.45);
+      color: rgba(234,240,255,.66);
       font-size: 12px;
-      display:none;
-      backdrop-filter: blur(10px);
-      z-index: 60;
+      line-height: 1.6;
+    }
+    .email{
+      color: rgba(234,240,255,.92);
+      font-weight: 900;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      letter-spacing:.2px;
     }
   </style>
 </head>
 
 <body>
   <div class="wrap">
+    <!-- top -->
     <div class="topbar">
       <div class="brandRow">
         <div class="dot"></div>
@@ -260,6 +273,7 @@
       </div>
     </div>
 
+    <!-- hero -->
     <section class="hero">
       <div class="appIcon" aria-hidden="true">
         <div class="piMark">π</div>
@@ -268,24 +282,78 @@
       <h1>PHKBank</h1>
       <div class="tagline">ONE WORLD · ONE PI · ONE FUTURE</div>
 
-      <!-- 요청하신 문구 수정: 이유 => 이윤 -->
+      <!-- 요청: 이유 => 이윤 -->
       <div class="slogan" id="sloganText">사람이 먼저, 이윤은 그 다음</div>
     </section>
 
+    <!-- Core -->
     <div class="sectionLabel" id="coreLabel">PHKBank Core · 실행 영역</div>
 
-    <section class="card" role="region" aria-label="core card">
-      <div class="cardTitle" id="cardTitle">기본소득</div>
-      <div class="cardSub" id="cardSub">기본소득 리워드</div>
-      <div class="cardMeta" id="cardMeta">
-        정기 지급 · 참여 기반 · 생태계 환원<br/>
-        개인/가정/커뮤니티의 금융 안전망을 만드는 새로운 기본소득 구조
-      </div>
+    <section class="card">
+      <div class="cardTitle" id="c1Title">기본소득</div>
+      <div class="cardSub" id="c1Sub">기본소득 리워드</div>
+      <div class="cardMeta" id="c1Meta">정기 지급 · 참여 기반 · 생태계 환원</div>
     </section>
 
+    <section class="card">
+      <div class="cardTitle" id="c2Title">결제</div>
+      <div class="cardSub" id="c2Sub">결제 · 송금</div>
+      <div class="cardMeta" id="c2Meta">결제 · 송금 · 정산 · 가치 이전</div>
+    </section>
+
+    <section class="card">
+      <div class="cardTitle" id="c3Title">예치율</div>
+      <div class="cardSub" id="c3Sub">31.4% APY (데모)</div>
+      <div class="cardMeta" id="c3Meta">안정성 · 유동성 · 장기 운영</div>
+    </section>
+
+    <section class="card">
+      <div class="cardTitle" id="c4Title">보상</div>
+      <div class="cardSub" id="c4Sub">참여 · 기여 기반</div>
+      <div class="cardMeta" id="c4Meta">활동 기록 · 기여 평가 · 보상 분배</div>
+    </section>
+
+    <div class="dividerText" id="extLabel">External Channels</div>
+
+    <section class="card" id="ytCard" role="button" tabindex="0">
+      <div class="cardTitle">YouTube</div>
+      <div class="cardSub">PHKBank 공식 영상 채널</div>
+    </section>
+
+    <section class="card" id="ttCard" role="button" tabindex="0">
+      <div class="cardTitle">TikTok</div>
+      <div class="cardSub">PHKBank 공식 틱톡 채널</div>
+    </section>
+
+    <!-- Framework -->
+    <div class="sectionLabel" id="fwLabel">PHKBank Framework · 구조 영역</div>
+
+    <section class="card">
+      <div class="cardTitle">PHKBank Framework</div>
+      <div class="cardSub">PHKBank는 단순 금융 앱이 아니라 결제·산업·기술·UBI를 통합하는 금융 운영체계(OS)입니다.</div>
+      <div class="cardMeta">금융 OS · 구조 설계 · 장기 확장</div>
+    </section>
+
+    <section class="card">
+      <div class="cardTitle">Global Expansion</div>
+      <div class="cardSub">PHKBank는 국가 단위를 넘어 글로벌 결제·정산·산업 연동 구조로 확장됩니다.</div>
+      <div class="cardMeta">국제 연동 · 파트너십 · 확장 구조</div>
+    </section>
+
+    <!-- 요청: PWB => PHK -->
+    <section class="card">
+      <div class="cardTitle">PHK Global</div>
+      <div class="cardSub">PHKBank의 하위 글로벌 확장 프레임으로, 국제 금융·산업·UBI 구조를 담당합니다.</div>
+      <div class="cardMeta">Sub Framework</div>
+    </section>
+
+    <div class="footer">
+      © <span id="year"></span> PHKBank<br/>
+      Financial Operating System
+    </div>
+
     <div class="contact">
-      문의: <span class="email" id="emailText">info@phkbank.com</span><br/>
-      © <span id="year"></span> PHKBank. All rights reserved.
+      문의: <span class="email" id="emailText">info@phkbank.com</span>
     </div>
   </div>
 
@@ -296,29 +364,34 @@
     <button data-lang="ar">العربية<small>AR</small></button>
   </div>
 
-  <div class="toast" id="toast">출처로 이동</div>
-
-  <!-- floating translate-like button -->
-  <div class="fab" id="fab" title="출처로 이동">
+  <!-- floating button -->
+  <div class="fab" id="fab" title="Top">
     <span>t</span>
   </div>
 
   <script>
     // year
     document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById("emailText").textContent = "info@phkbank.com";
+
+    // YouTube/TikTok 링크(원하시면 여기에 본인 채널 주소 넣으시면 됩니다)
+    const YT_URL = "#";
+    const TT_URL = "#";
+    const ytCard = document.getElementById("ytCard");
+    const ttCard = document.getElementById("ttCard");
+    function openLink(url){
+      if(!url || url === "#") return;
+      window.open(url, "_blank");
+    }
+    ytCard.addEventListener("click", ()=>openLink(YT_URL));
+    ttCard.addEventListener("click", ()=>openLink(TT_URL));
+    ytCard.addEventListener("keydown", (e)=>{ if(e.key==="Enter") openLink(YT_URL); });
+    ttCard.addEventListener("keydown", (e)=>{ if(e.key==="Enter") openLink(TT_URL); });
 
     // language dropdown
     const langBtn = document.getElementById("langBtn");
     const langMenu = document.getElementById("langMenu");
     const langLabel = document.getElementById("langLabel");
-
-    const toast = document.getElementById("toast");
-    function showToast(msg){
-      toast.textContent = msg;
-      toast.style.display = "block";
-      clearTimeout(showToast._t);
-      showToast._t = setTimeout(()=> toast.style.display = "none", 1100);
-    }
 
     langBtn.addEventListener("click", ()=>{
       langMenu.style.display = (langMenu.style.display === "block") ? "none" : "block";
@@ -329,34 +402,40 @@
       }
     });
 
-    // simple translations (minimal, 화면은 스샷 느낌 유지)
+    // i18n (스크샷 구조 유지, 문구만 최소 번역)
     const I18N = {
       ko:{
         lang:"한국어",
         slogan:"사람이 먼저, 이윤은 그 다음",
         core:"PHKBank Core · 실행 영역",
-        title:"기본소득",
-        sub:"기본소득 리워드",
-        meta:"정기 지급 · 참여 기반 · 생태계 환원<br/>개인/가정/커뮤니티의 금융 안전망을 만드는 새로운 기본소득 구조",
-        toast:"출처로 이동"
+        fw:"PHKBank Framework · 구조 영역",
+        ext:"External Channels",
+        c1t:"기본소득", c1s:"기본소득 리워드", c1m:"정기 지급 · 참여 기반 · 생태계 환원",
+        c2t:"결제", c2s:"결제 · 송금", c2m:"결제 · 송금 · 정산 · 가치 이전",
+        c3t:"예치율", c3s:"31.4% APY (데모)", c3m:"안정성 · 유동성 · 장기 운영",
+        c4t:"보상", c4s:"참여 · 기여 기반", c4m:"활동 기록 · 기여 평가 · 보상 분배"
       },
       en:{
         lang:"English",
         slogan:"People first, profit comes next",
         core:"PHKBank Core · Execution Areas",
-        title:"UBI",
-        sub:"UBI Rewards",
-        meta:"Scheduled payouts · Participation-based · Ecosystem return<br/>A new UBI model that builds financial safety for people, families, and communities",
-        toast:"Go to source"
+        fw:"PHKBank Framework · Architecture",
+        ext:"External Channels",
+        c1t:"UBI", c1s:"UBI Rewards", c1m:"Scheduled payouts · Participation-based · Ecosystem return",
+        c2t:"Payments", c2s:"Pay · Transfer", c2m:"Payments · Transfers · Settlement · Value transfer",
+        c3t:"Deposit Rate", c3s:"31.4% APY (Demo)", c3m:"Stability · Liquidity · Long-term operation",
+        c4t:"Rewards", c4s:"Contribution-based", c4m:"Activity log · Contribution scoring · Reward distribution"
       },
       ar:{
         lang:"العربية",
         slogan:"الإنسان أولاً، ثم الربح",
         core:"نواة PHKBank · مجالات التنفيذ",
-        title:"الدخل الأساسي",
-        sub:"مكافآت الدخل الأساسي",
-        meta:"مدفوعات دورية · مشاركة · عائد للنظام البيئي<br/>نموذج دخل أساسي يبني أمانًا ماليًا للأفراد والعائلات والمجتمعات",
-        toast:"الانتقال للمصدر"
+        fw:"إطار PHKBank · البنية",
+        ext:"القنوات الخارجية",
+        c1t:"الدخل الأساسي", c1s:"مكافآت الدخل الأساسي", c1m:"مدفوعات دورية · مشاركة · عائد للنظام البيئي",
+        c2t:"المدفوعات", c2s:"دفع · تحويل", c2m:"مدفوعات · تحويلات · تسوية · نقل قيمة",
+        c3t:"معدل الإيداع", c3s:"31.4% APY (تجريبي)", c3m:"استقرار · سيولة · تشغيل طويل الأجل",
+        c4t:"المكافآت", c4s:"على أساس المساهمة", c4m:"سجل النشاط · تقييم المساهمة · توزيع المكافآت"
       }
     };
 
@@ -364,34 +443,45 @@
       const t = I18N[code] || I18N.ko;
       langLabel.textContent = t.lang;
       document.getElementById("sloganText").textContent = t.slogan;
+
       document.getElementById("coreLabel").textContent = t.core;
-      document.getElementById("cardTitle").textContent = t.title;
-      document.getElementById("cardSub").textContent = t.sub;
-      document.getElementById("cardMeta").innerHTML = t.meta;
+      document.getElementById("fwLabel").textContent = t.fw;
+      document.getElementById("extLabel").textContent = t.ext;
+
+      document.getElementById("c1Title").textContent = t.c1t;
+      document.getElementById("c1Sub").textContent = t.c1s;
+      document.getElementById("c1Meta").textContent = t.c1m;
+
+      document.getElementById("c2Title").textContent = t.c2t;
+      document.getElementById("c2Sub").textContent = t.c2s;
+      document.getElementById("c2Meta").textContent = t.c2m;
+
+      document.getElementById("c3Title").textContent = t.c3t;
+      document.getElementById("c3Sub").textContent = t.c3s;
+      document.getElementById("c3Meta").textContent = t.c3m;
+
+      document.getElementById("c4Title").textContent = t.c4t;
+      document.getElementById("c4Sub").textContent = t.c4s;
+      document.getElementById("c4Meta").textContent = t.c4m;
+
       document.documentElement.lang = (code === "ar") ? "ar" : (code === "en") ? "en" : "ko";
       document.documentElement.dir = (code === "ar") ? "rtl" : "ltr";
     }
 
-    langMenu.querySelectorAll("button").forEach(btn=>{
+    document.querySelectorAll("#langMenu button").forEach(btn=>{
       btn.addEventListener("click", ()=>{
         setLang(btn.dataset.lang);
         langMenu.style.display = "none";
       });
     });
 
-    // floating button action (원하시면 URL 바꿔서 "출처로 이동" 가능)
+    // floating button: scroll top
     document.getElementById("fab").addEventListener("click", ()=>{
-      showToast(I18N[document.documentElement.lang]?.toast || I18N.ko.toast);
-      // 예: window.location.href = "https://phkbank.com";
-      // 지금은 데모로 최상단 이동
       window.scrollTo({top:0, behavior:"smooth"});
     });
 
     // init
     setLang("ko");
-
-    // email set
-    document.getElementById("emailText").textContent = "info@phkbank.com";
   </script>
 </body>
 </html>
